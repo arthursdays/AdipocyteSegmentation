@@ -96,38 +96,40 @@
        selectWindow("000-1.png");
        run("Make Binary");
        run("Fill Holes");
+
        run("Analyze Particles...", "size=10000-Infinity show=Outlines display exclude clear summarize");
-       saveAs("Results", "/Volumes/Documents/COMP4055Results/"+filename+"-TotalSize.csv");
+       saveAs("Results", "./Results/"+filename+"-TotalSize.csv");
        selectWindow("000.png");
        //run("Remove Outliers...", "radius=15 threshold=50 which=Bright");
        selectWindow("000-1.png");
        imageCalculator("Subtract create", "000-1.png","000.png");
        selectWindow("Result of 000-1.png");
 
-       run("Analyze Particles...", "size=225-10000 show=Outlines display exclude clear summarize");
+       run("Set Measurements...", "area mean min centroid add redirect=None decimal=3");
+       run("Analyze Particles...", "size=100-10000 circularity=0.50-1.00 show=Outlines display exclude clear summarize");
        //selectWindow("Results");
-       //saveAs("Results", "/home/comp/e5251691/Desktop/COMP4055Results/"+filename+"-Results.csv");
+       //saveAs("Results", "./Results/"+filename+"-Results.csv");
 
 
        selectWindow("Summary");
-       saveAs("Results", "/home/comp/e5251691/Desktop/COMP4055Results/"+filename+"-Summary.csv");
+       saveAs("Results", "./Results/"+filename+"-Summary.csv");
        //close();
 
        selectWindow("Result of 000-1.png");
-       //run("Save", "save=[/Volumes/Documents/COMP4055Results/"+filename+"-Result of 000-1.tif]");
+       //run("Save", "save=[./Results/"+filename+"-Result of 000-1.tif]");
        close();
 
        selectWindow("Drawing of Result of 000-1.png");
-       //run("Save", "save=[/Volumes/Documents/COMP4055Results/"+filename+"-Drawing of Result of 000-1.tif]");
+       //run("Save", "save=[./Results/"+filename+"-Drawing of Result of 000-1.tif]");
        close();
 
        selectWindow("000-1.png");
-       //run("Save", "save=[/Volumes/Documents/COMP4055Results/"+filename+"-000-1.tif]");
+       //run("Save", "save=[./Results/"+filename+"-000-1.tif]");
        close();
 
 
        selectWindow("000.png");
-       //run("Save", "save=[/Volumes/Documents/COMP4055Results/"+filename+"-000.tif]");
+       //run("Save", "save=[./Results/"+filename+"-000.tif]");
        close();
 
        selectWindow("Drawing of 000-1.png");
